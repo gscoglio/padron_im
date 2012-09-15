@@ -2,15 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Padron Independiente Mistico</title>
-<style type="text/css">
-<!--
-@import url("style.css");
--->
-</style>
+<!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <?php include_once 'socios.mc.php';?>
 </head>
 <body>
-<table id="hor-minimalist-b" summary="Padron IM">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<table class="table table-bordered table-hover table-striped table-condensed" summary="Padron IM">
     <thead>
     	<tr>
             <th scope="col">Socio IM</th>
@@ -68,17 +67,17 @@
         ?>
     </tbody>
 </table>
-<div id="pagination-div">
-    <ul id="pagination-clean">
+<div class="pagination">
+    <ul>
         <?php 
             $pages = $view->getAmountOfPages($amount);
             if($page == 1) {
         ?>
-            <li class="previous-off"><< Previous</li>
+            <li><a><< Previous</a></li>
         <?php
             } else {
         ?>
-            <li class="previous"><a href="?page=<?= $page - 1 ?>"><< Previous</a></li>
+            <li><a href="?page=<?= $page - 1 ?>"><< Previous</a></li>
         <?php
             }
 
@@ -93,7 +92,7 @@
 
         ?>
 
-        <li class="active"><?= $page ?></li>
+            <li><a><?= $page ?></a></li>
         <?php 
             for ($index = 0; $index < 3; $index++) {
                 $pageToShow = $page + ($index + 1);
@@ -106,7 +105,7 @@
 
             if ($page != $pages) {
         ?>
-        <li class="next"><a href="?page=<?= $page + 1 ?>">Next >></a></li>
+        <li><a href="?page=<?= $page + 1 ?>">Next >></a></li>
         <?php
             }
         ?>
