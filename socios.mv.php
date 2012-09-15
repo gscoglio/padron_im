@@ -4,11 +4,12 @@
 <title>Padron Independiente Mistico</title>
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-<?php include_once 'socios.mc.php';?>
+<?php include_once 'socios.mc.php' ?>
 </head>
 <body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<?php include_once 'navigation_bar.php' ?>
 <table class="table table-bordered table-hover table-striped table-condensed" summary="Padron IM">
     <thead>
     	<tr>
@@ -67,50 +68,6 @@
         ?>
     </tbody>
 </table>
-<div class="pagination">
-    <ul>
-        <?php 
-            $pages = $view->getAmountOfPages($amount);
-            if($page == 1) {
-        ?>
-            <li><a><< Previous</a></li>
-        <?php
-            } else {
-        ?>
-            <li><a href="?page=<?= $page - 1 ?>"><< Previous</a></li>
-        <?php
-            }
-
-            for ($index = 3; $index > 0; $index--) {
-                $pageToShow = $page - $index;
-                if ($pageToShow > 0) {
-                    ?>
-                    <li><a href="?page=<?= $pageToShow ?>"><?= $pageToShow ?></a></li>
-                    <?php    
-                }    
-            }
-
-        ?>
-
-            <li><a><?= $page ?></a></li>
-        <?php 
-            for ($index = 0; $index < 3; $index++) {
-                $pageToShow = $page + ($index + 1);
-                if ($pageToShow <= $pages) {
-                    ?>
-                    <li><a href="?page=<?= $pageToShow ?>"><?= $pageToShow ?></a></li>
-                    <?php    
-                }    
-            }
-
-            if ($page != $pages) {
-        ?>
-        <li><a href="?page=<?= $page + 1 ?>">Next >></a></li>
-        <?php
-            }
-        ?>
-
-    </ul>
-</div>
+<?php include_once 'paginator.php' ?>
 </body>
 </html>
