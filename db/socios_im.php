@@ -1,16 +1,9 @@
 <?php
 
-include_once 'config/config.php';
+include_once 'abstract.php';
 
-class SociosModel 
-{
-    private $_db;
-    
-    public function __construct() {
-        $this->_db = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-        mysql_select_db(DB_NAME);
-    }
-    
+class SociosModel extends Padron_Abstract
+{   
     public function getSocios($to, $limit, $orderBy = 'socio_nro')
     {
         $query = "SELECT * 

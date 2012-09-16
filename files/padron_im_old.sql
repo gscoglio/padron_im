@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 16, 2012 at 03:35 PM
+-- Generation Time: Sep 08, 2012 at 07:55 PM
 -- Server version: 5.5.24
 -- PHP Version: 5.3.10-1ubuntu3.2
 
@@ -369,32 +369,6 @@ INSERT INTO `padron_im` (`socio_id`, `sexo`, `apellido`, `nombre`, `categoria`, 
 (311, 'M', 'MANETTI', 'Diego Ricardo', 'ACTIVO', 311, '58,829', '21,982,014', '155-452-7347', NULL, NULL, 'manetti.diego@vps.com', '2011-11-03', 'LARRALDE P.', 'PAVON 1105', 'AVELLANEDA', '1870', NULL, 'EMPLEADO', 'invitacion enviada'),
 (312, 'M', 'VINCIGUERRA', 'Patricio Luis', 'ACTIVO', 312, '17,796', '30,664,340', '153-560-6788', '6380-8885', NULL, 'malvino@hotmail.com', '2011-11-03', 'LARRALDE P.', 'MILLER 2510', 'LANUS', '1824', NULL, 'FERROVIARIO', 'invitacion enviada'),
 (313, 'M', 'ADOLFO', 'Gastón', 'ACTIVO', 313, '20,593', '34,339,381', '155-409-4780', '4265-4275', NULL, 'gastonadolfo@hotmail.com', '2011-11-03', 'LARRALDE P.', 'DORREGO 2652 P 2°', 'AVELLANEDA', '1824', 'SARANDÍ', 'EMPLEADO', 'invitacion enviada');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` char(32) NOT NULL,
-  `profile_id` int(10) unsigned zerofill NOT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `idusers_UNIQUE` (`user_id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`user_id`, `username`, `password`, `profile_id`) VALUES
-(1, 'gscoglio', 'dbbebd8eb0c45dc8742da795423bafca', 0000000000),
-(2, 'pscoglio', 'a2bea2b40f834f27e6df20f41c9939d8', 0000000000),
-(3, 'lriveiro', 'b45795712b21105212e4e8c8fb19ca7d', 0000000000),
-(4, 'mdegli', 'ae6d25309ca9a43c63d1a29bf0e17f1c', 0000000000);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
