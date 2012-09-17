@@ -2,9 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php include_once 'header.php' ?>
 <body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <?php include_once 'navigation_bar.php' ?>
+<?php include_once 'socios.mc.php' ?>
+    <div class="row">
+        <div class="span3 offset12">
+            <form class="form-search">
+                <div class="input-append">
+                <input type="text" class="span2 search-query">
+                <button type="submit" class="btn">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>      
 <table class="table table-bordered table-hover table-striped table-condensed" summary="Padron IM">
     <thead>
     	<tr>
@@ -15,7 +24,7 @@
             <th scope="col">Sexo</th>
             <th scope="col">Categoria</th>
             <th scope="col">DNI</th>
-            <th scope="col">Telefono celular</th>
+            <!--<th scope="col">Telefono celular</th>
             <th scope="col">Telefono particular</th>
             <th scope="col">Telefono laboral</th>
             <th scope="col">E-mail</th>
@@ -26,7 +35,7 @@
             <th scope="col">Codigo postal</th>
             <th scope="col">Barrio / Zona</th>
             <th scope="col">Ocupacion</th>
-            <th scope="col">Comentarios</th>     
+            <th scope="col">Comentarios</th>-->     
         </tr>
     </thead>
     <tbody>
@@ -44,7 +53,7 @@
                 <td><?= $socio['sexo'] ?></td>
                 <td><?= $socio['categoria'] ?></td>
                 <td><?= $socio['dni'] ?></td>
-                <td><?= $socio['tel_celular'] ?></td>
+                <!--<td><?= $socio['tel_celular'] ?></td>
                 <td><?= $socio['tel_particular'] ?></td>
                 <td><?= $socio['tel_laboral'] ?></td>
                 <td><?= $socio['email'] ?></td>
@@ -55,7 +64,7 @@
                 <td><?= $socio['codigo_postal'] ?></td>
                 <td><?= $socio['barrio_zona'] ?></td>
                 <td><?= $socio['ocupacion'] ?></td>
-                <td><?= $socio['extra_comments'] ?></td>
+                <td><?= $socio['extra_comments'] ?></td>-->
             </tr>
             <?php
             }
