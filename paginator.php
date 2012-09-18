@@ -1,4 +1,6 @@
-<div class="pagination">
+<div class="row">
+    <div class="span11 offset1">
+    <div class="pagination">
     <ul>
         <?php 
             $pages = $view->getAmountOfPages($amount);
@@ -43,3 +45,4 @@
 
     </ul>
 </div>
+        </div>

@@ -5,7 +5,7 @@
 <?php include_once 'navigation_bar.php' ?>
 <?php include_once 'socios.mc.php' ?>
     <div class="row">
-        <div class="span3 offset12">
+        <div class="span3 offset10">
             <form class="form-search">
                 <div class="input-append">
                 <input type="text" class="span2 search-query">
@@ -13,7 +13,9 @@
                 </div>
             </form>
         </div>
-    </div>      
+    </div>   
+<div class="row">
+    <div class="span12 offset1">    
 <table class="table table-bordered table-hover table-striped table-condensed" summary="Padron IM">
     <thead>
     	<tr>
@@ -72,6 +74,7 @@
         ?>
     </tbody>
 </table>
+        </div>
 <?php include_once 'paginator.php' ?>
 </body>
 </html>
