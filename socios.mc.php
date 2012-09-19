@@ -10,9 +10,9 @@ class Socios
         $this->_sociosDb = new SociosModel();
     }
 
-    public function getSociosPerPage($page = 1, $amount = 20)
+    public function getSociosPerPage($page = 1, $amount = 20, $where = '')
     {
-        $total = $this->_sociosDb->getSociosAmount();
+        $total = $this->_sociosDb->getSociosAmount($where);
         
         $diference = $total - ($page * $amount);        
         
@@ -30,12 +30,12 @@ class Socios
         
         $from = ($page - 1) * $amount;
         
-        return $this->_sociosDb->getSocios($from, $amount);        
+        return $this->_sociosDb->getSocios($from, $amount, $where);        
     }
     
-    public function getAmountOfPages($limit) 
+    public function getAmountOfPages($limit, $where = '') 
     {
-        $totalSocios = $this->_sociosDb->getSociosAmount();
+        $totalSocios = $this->_sociosDb->getSociosAmount($where);
         $count = $totalSocios / $limit;
         $pages = floor($count);
         if ($count - $pages > 0) {

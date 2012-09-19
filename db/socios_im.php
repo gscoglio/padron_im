@@ -4,10 +4,17 @@ include_once 'abstract.php';
 
 class SociosModel extends Padron_Abstract
 {   
-    public function getSocios($to, $limit, $orderBy = 'socio_nro')
+    public function getSocios($to, $limit, $where = '', $orderBy = 'socio_nro')
     {
+        if ($where == '') {
+            $whereQuery = '';
+        } else {
+            $whereQuery = 'WHERE ' . $where;
+        }
+        
         $query = "SELECT * 
             FROM padron_im 
+            $whereQuery
             ORDER BY $orderBy 
             LIMIT $to,$limit;";
         $result = mysql_query($query, $this->_db);
@@ -17,9 +24,15 @@ class SociosModel extends Padron_Abstract
         return $socios;
     }
     
-    public function getSociosAmount()
+    public function getSociosAmount($where = '')
     {
-        $sql = "SELECT count(*) FROM padron_im;";
+        if ($where == '') {
+            $whereQuery = '';
+        } else {
+            $whereQuery = 'WHERE ' . $where;
+        }
+        
+        $sql = "SELECT count(*) FROM padron_im $whereQuery;";
         $query = mysql_query($sql, $this->_db);
         $result = mysql_fetch_array($query);
         return $result[0];      
