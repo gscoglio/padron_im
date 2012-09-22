@@ -1,0 +1,18 @@
+/* 
+    Document   : myForm
+    Created on : Sep 17, 2012, 8:46:06 PM
+    Author     : Pablo
+    Description:
+        Our stylesheet.
+*/
+
+root { 
+    display: block;
+}
+
+/*FORMS*/
+.formLabel {
+    width: 100px !important; 
+    text-align: right !important;
+}
+
