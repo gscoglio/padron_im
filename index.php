@@ -19,7 +19,7 @@ if (isset($_GET['amount'])) {
 }
 
 $criterias = array();
-$where = '';
+$where = $paginatorSearch = '';
 
 foreach ($searchCriterias as $criteria => $type) {
     array_push($criterias, $criteria);
@@ -29,10 +29,14 @@ if (isset($_GET['criteria']) && in_array($_GET['criteria'], $criterias)) {
     $criteria = $_GET['criteria'];
     if (isset($_GET['search'])) {
         $search = mysql_real_escape_string(urldecode($_GET['search']));
+        $paginatorSearch = "&search=" . $_GET['search'] . 
+            '&criteria=' . $_GET['criteria']; 
         if ($searchCriterias[$_GET['criteria']] == 'text') {
             $where = $criteria . ' like ' . "'%" . $search . "%'";
         } else {
-            $where = $criteria . "=" . $search;
+            if(!is_string($search)){
+                $where = $criteria . "=" . $search;
+            }
         }
     }
 }

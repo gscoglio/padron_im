@@ -2,7 +2,7 @@
     <div class="span11 offset1">
         <div class="pagination">
             <ul>
-                <?php 
+                <?php                 
                     $pages = $view->getAmountOfPages($amount, $where);
                     if($page == 1) {
                 ?>
@@ -10,7 +10,7 @@
                 <?php
                     } else {
                 ?>
-                    <li><a href="?page=<?= $page - 1 ?>"><< Previous</a></li>
+                    <li><a href="?page=<?= ($page - 1) . $paginatorSearch ?>"><< Previous</a></li>
                 <?php
                     }
 
@@ -18,7 +18,7 @@
                         $pageToShow = $page - $index;
                         if ($pageToShow > 0) {
                             ?>
-                            <li><a href="?page=<?= $pageToShow ?>"><?= $pageToShow ?></a></li>
+                            <li><a href="?page=<?= $pageToShow . $paginatorSearch ?>"><?= $pageToShow ?></a></li>
                             <?php    
                         }    
                     }
@@ -30,14 +30,14 @@
                         $pageToShow = $page + ($index + 1);
                         if ($pageToShow <= $pages) {
                             ?>
-                            <li><a href="?page=<?= $pageToShow ?>"><?= $pageToShow ?></a></li>
+                            <li><a href="?page=<?= $pageToShow . $paginatorSearch ?>"><?= $pageToShow ?></a></li>
                             <?php    
                         }    
                     }
 
                     if ($page != $pages) {
                 ?>
-                <li><a href="?page=<?= $page + 1 ?>">Next >></a></li>
+                <li><a href="?page=<?= ($page + 1) . $paginatorSearch ?>">Next >></a></li>
                 <?php
                     }
                 ?>
