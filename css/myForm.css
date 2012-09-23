@@ -16,3 +16,14 @@ root {
     text-align: right !important;
 }
 
+label.valid {
+  width: 24px;
+  height: 24px;
+  background: url(../img/valid.png) center center no-repeat;
+  display: inline-block;
+}
+label.error {
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}

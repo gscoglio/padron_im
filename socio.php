@@ -1,23 +1,3 @@
-<!--                        <td><?= $socio['socio_nro'] ?></td>
-                        <td><?= $socio['socio_cai'] ?></td>
-                        <td><?= $socio['apellido'] ?></td>
-                        <td><?= $socio['nombre'] ?></td>
-                        <td><?= $socio['sexo'] ?></td>
-                        <td><?= $socio['categoria'] ?></td>
-                        <td><?= $socio['dni'] ?></td>
-                        <!--<td><?= $socio['tel_celular'] ?></td>
-                        <td><?= $socio['tel_particular'] ?></td>
-                        <td><?= $socio['tel_laboral'] ?></td>
-                        <td><?= $socio['email'] ?></td>
-                        <td><?= $socio['fecha_afiliacion'] ?></td>
-                        <td><?= $socio['presentado_por'] ?></td>
-                        <td><?= $socio['domicilio'] ?></td>
-                        <td><?= $socio['localidad'] ?></td>
-                        <td><?= $socio['codigo_postal'] ?></td>
-                        <td><?= $socio['barrio_zona'] ?></td>
-                        <td><?= $socio['ocupacion'] ?></td>
-                        <td><?= $socio['extra_comments'] ?></td>-->
-
 <?php
 session_start(); /// initialize session
 include_once("passwords.php");
