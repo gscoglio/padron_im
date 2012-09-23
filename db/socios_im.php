@@ -38,4 +38,14 @@ class SociosModel extends Padron_Abstract
         return $result[0];      
     }
     
+    public function getSocioById($id) 
+    {
+        $sql = "SELECT * 
+            FROM padron_im 
+            WHERE socio_id=$id;";
+        $query = mysql_query($sql, $this->_db);
+        $socio = mysql_fetch_array($query);
+        return $socio;
+    }
+    
 }

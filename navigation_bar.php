@@ -1,9 +1,9 @@
 <div class="navbar">
     <div class="navbar-inner">
-        <a class="brand" >Padron Independiente Mistico</a>
+        <a class="brand" >Padr&oacute;n Independiente M&iacute;stico</a>
         <ul class="nav">
-        <li class="active"><a href="index.php">Padron</a></li>
-        <li><a href="admin.php">Administrar</a></li>
+        <li class="active"><a href="index.php">Padr&oacute;n</a></li>
+        <li><a href="admin.php">Altas</a></li>
         </ul>
     </div>
 </div>
