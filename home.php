@@ -3,8 +3,8 @@
 <?php include_once 'header.php' ?>
 <body>
 <?php include_once 'navigation_bar.php' ?>
-<?php include_once 'search.mv.php' ?>   
-<?php include_once 'socios.mv.php' ?>
+<?php include_once 'views/search.mv.php' ?>   
+<?php include_once 'views/socios.mv.php' ?>
 <?php include_once 'paginator.php' ?>
 </body>
 </html>

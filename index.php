@@ -15,7 +15,7 @@ if (isset($_GET['page'])) {
 if (isset($_GET['amount'])) {
     $amount = $_GET['amount'];
 } else {
-    $amount = 20;
+    $amount = AMOUNT_PER_PAGE;
 }
 
 $criterias = array();
@@ -34,9 +34,7 @@ if (isset($_GET['criteria']) && in_array($_GET['criteria'], $criterias)) {
         if ($searchCriterias[$_GET['criteria']] == 'text') {
             $where = $criteria . ' like ' . "'%" . $search . "%'";
         } else {
-            if(!is_string($search)){
                 $where = $criteria . "=" . $search;
-            }
         }
     }
 }

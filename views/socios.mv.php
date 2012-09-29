@@ -1,5 +1,5 @@
 <?php 
-include_once 'socios.mc.php'; 
+include_once 'controllers/socios.mc.php';
 
 $view = new Socios();
 $socios = $view->getSociosPerPage($page, $amount, $where);

@@ -12,6 +12,6 @@ if (isset($_SESSION["logged"]) &&
         array_key_exists($_SESSION["logged"],$USERS)) { //// check if user is logged or not 
     header("Location: index.php");
 } else { //// if not logged show login form
-    include_once 'login.mv.php';
+    include_once 'views/login.mv.php';
 };
 ?>
