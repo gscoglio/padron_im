@@ -17,3 +17,5 @@ $searchCriterias = array(
     'socio_cai' => 'text',
     'dni' => 'number',
 );
+
+define('AMOUNT_PER_PAGE', 20);
