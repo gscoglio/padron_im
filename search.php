@@ -28,7 +28,7 @@ switch ($_POST['searchCriteria']) {
         break;
 }
 
-$searchText = urlencode(mysql_real_escape_string($_POST['searchText']));
+$searchText = urlencode($_POST['searchText']);
 
 header("Location: index.php?search=$searchText&criteria=$whereCriteria");
 
