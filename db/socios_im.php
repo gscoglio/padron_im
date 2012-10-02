@@ -48,4 +48,33 @@ class SociosModel extends Padron_Abstract
         return $socio;
     }
     
+    public function insertSocio($params)
+    {    
+        $sql = "INSERT INTO padron_im (sexo, apellido, nombre, categoria, 
+            socio_nro, socio_cai, dni, tel_celular, tel_particular, 
+            tel_laboral, email, fecha_afiliacion, presentado_por, 
+            domicilio, localidad, codigo_postal, barrio_zona, ocupacion) 
+            VALUES('" . 
+            $params['sexo'] . "', '" . 
+            $params['lastname'] . "','" . 
+            $params['firstname'] . "','" .
+            $params['tiposocio'] . "'," .
+            $params['nsocioIM'] . ",'" .
+            $params['nsocio'] . "'," .
+            $params['dni'] . ",'" .
+            $params['telcel'] . "','" .
+            $params['telpar'] . "','" .
+            $params['tellaboral'] . "','" .
+            $params['email'] . "','" .
+            $params['afiliacion'] . "','" .
+            $params['presentedby'] . "','" .
+            $params['address'] . "','" .
+            $params['localidad'] . "','" .
+            $params['postal'] . "','" .
+            $params['barrio'] . "','" .
+            $params['ocupacion'] . "');";
+        //print($sql);
+        mysql_query($sql, $this->_db)
+            or die("Error Addind Socio");
+    }   
 }
