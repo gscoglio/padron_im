@@ -55,5 +55,5 @@ if (isset($_POST['nsocio'])) {
     }
 }
 
-include_once 'admin.mv.php';
+include_once 'views/altas.mv.php';
 

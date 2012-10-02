@@ -90,7 +90,7 @@
 </script>
 <?php include_once 'navigation_bar.php' ?>
 <div class="container">
-<form class="form-horizontal" id="formulario" action="admin.php" method="post">
+<form class="form-horizontal" id="formulario" action="altas.php" method="post">
     <div class="control-group">
         <div class="input-prepend">
             <span class="add-on formLabel">Socio CAI</span><input class="span5" id="nsocio" name="nsocio" size="16" type="text" placeholder="21100">
@@ -152,7 +152,7 @@
     </div>
     <div class="control-group">
         <div class="input-prepend">
-            <span class="add-on">Fecha de afiliciaci&oacute;n</span><input class="span2" id="afiliacion" name="afiliacion" size="16" type="text" placeholder="19/10/21012">
+            <span class="add-on">Fecha de afiliciaci&oacute;n</span><input class="span2" id="afiliacion" name="afiliacion" size="16" type="text" placeholder="19/10/2012">
         </div>
     </div>
     <div class="control-group">
