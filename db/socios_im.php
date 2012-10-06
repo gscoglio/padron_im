@@ -24,6 +24,17 @@ class SociosModel extends Padron_Abstract
         return $socios;
     }
     
+    public function getAllSocios()
+    {
+        $query = "SELECT * 
+            FROM padron_im;";
+        $result = mysql_query($query, $this->_db);
+        while ($socio = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            $socios[] = $socio;
+        }
+        return $socios;
+    }
+    
     public function getSociosAmount($where = '')
     {
         if ($where == '') {

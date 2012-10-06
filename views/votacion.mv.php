@@ -3,18 +3,22 @@
 <head>
     <title>Votaci&oacute;n Autoridades Independiente M&iacute;stico</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
-    <script type="text/javascript">
-        function function1(id) {
-            #var checkId = 'check' + id;
-            #alert(checkId.checked);
-        }
-    </script>
 </head>
 <body>
-    <form name="vote" action="votacion.php" method="post">
+    <form id="vote" name="vote" action="votacion.php" method="post">
     <div class="container">
-        <div class="page-header">
-            <h1>Independiente M&iacute;stico <small>Elecci&oacute;n online de autoridades</small></h1>
+        
+                <div class="page-header">
+                    <div class="row">
+            <div class="span10">
+                    <h1>Independiente M&iacute;stico <small>Elecci&oacute;n online de autoridades</small></h1>
+                </div>
+                   <div class="span2">
+                    <p>
+                        <a class="btn btn-link" href="logout.php" type="button" style="float: right; margin-top: 10px;"><i class="icon-off"></i> Log out</a>
+                    </p>
+                </div>
+            </div>
         </div>
 <p class="lead">Algunas consideraciones antes de elegir:</p>
     <dl>
@@ -23,12 +27,19 @@
         <dt>&iquest;Se vota presidente y vicepresidente de la agrupaci&oacute;n?</dt>
         <dd>No. Ya fueron seleccionados. Se votan los vocales que los van a acompa&ntilde;ar.</dd>
         <dt>&iquest;Cu&aacute;ntos vocales tengo que votar?</dt>
-        <dd>11. Pero si as&iacute; lo desee puede votar a una menor cantidad.</dd>
+        <dd>11. Pero si as&iacute; lo desea puede votar a una menor cantidad.</dd>
         <dt>&iquest;Cu&aacute;ntas veces puedo votar?</dt>
-        <dd>1 (UNA). Sin excepci&oacute;n. No importa si solo seleccion&eacute; a 1 candidato la primera vez. Ese ser&aacute; su voto.</dd>
+        <dd>1 (UNA). Sin excepci&oacute;n. No importa si solo selecciona 1 candidato la primera vez. Ese ser&aacute; su voto.</dd>
     </dl>
         <h2>Ahora s&iacute;, ya puede elegir a sus candidatos:</h2>
-        <p class="lead">Seleccione sus once:</p>
+        <div class="row">
+            <div class="span6">
+                <p class="lead">Seleccione sus once:</p>
+            </div>
+            <div class="span6">
+                <p id="seleccionados" class="lead text-info"></p>
+            </div>
+        </div>
         <?php       
         $candidatosCount = count($candidatos);        
         $divs = ceil($candidatosCount / 3);
@@ -90,9 +101,33 @@
     </div>
     </form>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        function function1(id) {
+
+            var checkId = '#check' + id;
+            var liId = '#li' + id;
+            var cantidadSeleccionados = $("input:checked").length;
+               
+            $("#seleccionados").text("Ya tiene " + cantidadSeleccionados + (cantidadSeleccionados <= 1 ? " candidato seleccionado" : " candidatos seleccionados"));
+            
+            if (cantidadSeleccionados > 11) {
+                $(checkId).attr('checked', false);
+                cantidadSeleccionados = $("input:checked").length;
+                $("#seleccionados").text("Ya tiene " + cantidadSeleccionados + (cantidadSeleccionados <= 1 ? " candidato seleccionado" : " candidatos seleccionados"));
+                alert("No puede seleccionar mas candidatos. Ya tiene 11.");
+            }         
+
+            if ($(checkId).attr('checked')) {
+                $(liId).show();
+            } else {
+                $(liId).hide();
+            }
+           
+        }
+    </script>
     
 </body>
 </html>
