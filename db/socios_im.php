@@ -77,4 +77,17 @@ class SociosModel extends Padron_Abstract
         mysql_query($sql, $this->_db)
             or die("Error Addind Socio");
     }   
+    
+    public function getCandidatos()
+    {
+        $query = "SELECT * 
+            FROM padron_im 
+            WHERE candidato = 1
+            ORDER BY apellido;";
+        $result = mysql_query($query, $this->_db);
+        while ($candidato = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            $candidatos[] = $candidato;
+        }
+        return $candidatos;
+    }
 }
