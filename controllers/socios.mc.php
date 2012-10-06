@@ -6,7 +6,8 @@ class Socios
 {
     private $_sociosDb;
     
-    public function __construct() {
+    public function __construct() 
+    {
         $this->_sociosDb = new SociosModel();
     }
 
@@ -43,4 +44,14 @@ class Socios
         }
         return (int)$pages;
     }
+    
+    public function checkVote($socio) 
+    {
+        $socio = $this->_sociosDb->getSocioByNro((int)$socio);
+        if ($socio['voto'] == '1') {
+            return 'true';
+        }
+        return 'false';
+    }
+
 }

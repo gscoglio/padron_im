@@ -59,6 +59,16 @@ class SociosModel extends Padron_Abstract
         return $socio;
     }
     
+    public function getSocioByNro($socio_nro) 
+    {
+        $sql = "SELECT * 
+            FROM padron_im 
+            WHERE socio_nro=$socio_nro;";
+        $query = mysql_query($sql, $this->_db);
+        $socio = mysql_fetch_array($query);
+        return $socio;
+    }
+    
     public function insertSocio($params)
     {   
         $nrosocioIM = $this->_getLastNumberSocio() + 1;
@@ -100,7 +110,8 @@ class SociosModel extends Padron_Abstract
         }
     }
     
-    private function _getLastNumberSocio(){
+    private function _getLastNumberSocio()
+    {
         $sql = "SELECT MAX( socio_nro ) FROM  padron_im;";
         $query = mysql_query($sql, $this->_db);
         $nrosocio = mysql_fetch_array($query);
@@ -119,4 +130,5 @@ class SociosModel extends Padron_Abstract
         }
         return $candidatos;
     }
+
 }

@@ -4,16 +4,32 @@ session_start(); /// initialize session
 include_once("passwords.php");
 check_logged("toVote"); /// function checks if visitor is logged. If user is not logged the user is redirected to login.php page 
 
-//chequeo si ya voto
-//si ya voto voy a pagina de voto realizado y salgo
+$user = (int)$_SESSION['tovote']["logged"];
+
+include_once 'controllers/socios.mc.php';
+$sociosDb = new Socios();
+$voted = $sociosDb->checkVote($user);
+
+if ($voted == 'true') {
+    header("Location: end.php");
+    exit;
+}
+
+include_once 'db/votos.php';
+$votosDb = new Votos();
 
 if (isset($_POST) && !empty($_POST)) {
     
-    //guardar en la base
-    //marcar el flag de voto
-    //mostrar mensaje exito
-    var_dump($_POST);exit;
+    $votos = $_POST;
     
+    foreach ($votos as $voto => $value) {
+        $votosDb->saveVote($user, $voto);
+    }
+    
+    //marcar el flag de voto
+    
+    header("Location: end.php");
+    exit; 
 }
 
 include_once "db/socios_im.php";
