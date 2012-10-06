@@ -7,13 +7,12 @@
 <body>
     <form id="vote" name="vote" action="votacion.php" method="post">
     <div class="container">
-        
-                <div class="page-header">
-                    <div class="row">
-            <div class="span10">
+        <div class="page-header">
+            <div class="row">
+                <div class="span10">
                     <h1>Independiente M&iacute;stico <small>Elecci&oacute;n online de autoridades</small></h1>
                 </div>
-                   <div class="span2">
+                <div class="span2">
                     <p>
                         <a class="btn btn-link" href="logout.php" type="button" style="float: right; margin-top: 10px;"><i class="icon-off"></i> Log out</a>
                     </p>
