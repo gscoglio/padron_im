@@ -53,5 +53,12 @@ class Socios
         }
         return 'false';
     }
+    
+    public function markAsVoted($socio) 
+    {
+        $values = array('voto' => 1);
+        $result = $this->_sociosDb->updateSocioByNro($values, (int)$socio);
+        return $result;
+    }
 
 }

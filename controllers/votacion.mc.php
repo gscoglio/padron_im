@@ -26,7 +26,7 @@ if (isset($_POST) && !empty($_POST)) {
         $votosDb->saveVote($user, $voto);
     }
     
-    //marcar el flag de voto
+    $sociosDb->markAsVoted($user);
     
     header("Location: end.php");
     exit; 

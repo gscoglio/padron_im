@@ -131,4 +131,18 @@ class SociosModel extends Padron_Abstract
         return $candidatos;
     }
 
+    public function updateSocioByNro($values, $socio_nro)
+    {
+        $query = "UPDATE padron_im SET ";
+        
+        //TODO: IMPROVE FOR MORE THAN 1 VALUE
+        foreach ($values as $key => $value) {
+            $query .= "$key = $value";
+        }
+        
+        $query .= " WHERE socio_nro = $socio_nro;";
+        $result = mysql_query($query, $this->_db);
+        return $result;
+    }
+    
 }
