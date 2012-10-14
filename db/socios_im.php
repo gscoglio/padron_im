@@ -123,7 +123,7 @@ class SociosModel extends Padron_Abstract
         $query = "SELECT * 
             FROM padron_im 
             WHERE candidato = 1
-            ORDER BY apellido;";
+            ORDER BY socio_nro;";
         $result = mysql_query($query, $this->_db);
         while ($candidato = mysql_fetch_array($result, MYSQL_ASSOC)) {
             $candidatos[] = $candidato;

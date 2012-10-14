@@ -10,6 +10,17 @@ include_once 'controllers/socios.mc.php';
 $sociosDb = new Socios();
 $voted = $sociosDb->checkVote($user);
 
+switch ($voted) {
+    case 'disabled':
+        header("Location: disabled.php");
+        exit;
+        break;
+    case 'true':
+        header("Location: end.php");
+        exit;
+        break;
+}
+
 if ($voted == 'true') {
     header("Location: end.php");
     exit;

@@ -69,7 +69,7 @@
                     <h3><small>Ocupaci&oacute;n: </small><?= $socio['ocupacion'] ?></h3>
                 </div>
                 <div class="span6" >
-                    <h3><small>Comentarios: </small><?= $socio['extra_comments'] ?></h3>
+                    <h3><small>Ultima cuota paga: </small><?= $socio['ultima_cuota'] ?></h3>
                 </div>
             </div>
             <br />

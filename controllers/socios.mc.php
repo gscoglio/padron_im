@@ -51,6 +51,9 @@ class Socios
         if ($socio['voto'] == '1') {
             return 'true';
         }
+        if ($socio['puede_votar'] == '0') {
+            return 'disabled';
+        }
         return 'false';
     }
     

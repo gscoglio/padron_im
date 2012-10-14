@@ -8,19 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <div class="hero-unit" style="margin-top: 20px">
-            <div class="row">
-                <div class="span7">
-                    <h1>Gracias por su voto!</h1>
-                    <br/>
-                    <p>El mismo fue registrado exitosamente.</p>
-                    <p>Ahora, a esperar los resultados!</p>
-                </div>
-                <div class="span3">
-                    <img src="img/pulgar_arriba.png" class="img-rounded"></img>
-                </div>
-            </div>
-            <div class="row">
+        <div class="alert alert-error" style="margin-top: 20px">
+        Por alguna raz&oacute;n se encuentra deshabilitado para votar. Por ejemplo, una de ellas puede ser que su categor&iacute;a de afiliaci&oacute;n a Independiente M&iacute;stico sea 'adherente'. De todas maneras contactese con los organizadores de las elecci&oacute;n para m&aacute;s detalles. Sepa disculpar los inconvenientes.
+        </div>
+        <div class="row">
+            <div class="offset10">
                 <a class="btn btn-link" href="logout.php" type="button"><i class="icon-off"></i> Log out</a>
             </div>
         </div>

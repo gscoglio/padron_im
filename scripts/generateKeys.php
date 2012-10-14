@@ -18,9 +18,9 @@ foreach ($socios as $socio) {
     if (empty($socio['clave'])) {
         $key = generateKey();
         saveKey($socio['socio_nro'], $key, $db);
-        echo $socio['socio_nro'] . " - " . $key . "<br />";
+        echo $socio['socio_nro'] . "-" . $key . "<br />";
     } else {
-        echo $socio['socio_nro'] . " - " . $socio['clave'] . "<br />";
+        echo $socio['socio_nro'] . "-" . $socio['clave'] . "<br />";
     }
     
 }

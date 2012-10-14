@@ -3,6 +3,34 @@
 <head>
     <title>Votaci&oacute;n Autoridades Independiente M&iacute;stico</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
+    <script type="text/javascript">        
+        function preload(images) {
+            if (document.images) {
+                var i = 0;
+                var imageArray = new Array();
+                imageArray = images.split(',');
+                var imageObj = new Image();
+                for(i=0; i<=imageArray.length-1; i++) {
+                    //document.write('<img src="img/fotos/' + imageArray[i] + '" />');// Write to page (uncomment to check images)
+                    imageObj.src=images[i];
+                }
+            }
+        }
+        <?
+        $index = 0;
+        $jsfunction = "preload('";
+        foreach ($candidatos as $candidato) {
+            if ($index == 0) {
+                $jsfunction .= $candidato['socio_nro'] . '.jpg';
+            } else {
+                $jsfunction .= ',' . $candidato['socio_nro'] . '.jpg';
+            }
+            $index++;
+        }
+        $jsfunction .= "');";
+        echo $jsfunction;
+        ?>
+    </script>
 </head>
 <body>
     <form id="vote" name="vote" action="votacion.php" method="post">
@@ -19,7 +47,6 @@
                 </div>
             </div>
         </div>
-<p class="lead">Algunas consideraciones antes de elegir:</p>
     <dl>
         <dt>&iquest;Qu&eacute; se vota?</dt>
         <dd>Se votan los vocales de la Agrupaci&oacute;n Independiente M&iacute;stico para el pr&oacute;ximo a&ntilde;o de mandato.</dd>
@@ -51,9 +78,9 @@
             for ($index1 = 0; $index1 < 3; $index1++) {
                 if(isset($candidatos[($index*3)+$index1])){
                     ?>        
-                    <div class="span4">
+                    <div id="div<?= $candidatos[($index*3)+$index1]['socio_id'] ?>" class="span4" onmouseover="function2(<?= $candidatos[($index*3)+$index1]['socio_id'] ?>);" onmouseout="function3(<?= $candidatos[($index*3)+$index1]['socio_id'] ?>);" data-placement="top" data-html="true" data-content='<a class="thumbnail"><img src="img/fotos/<?= $candidatos[($index*3)+$index1]['socio_nro'] ?>.jpg"></a>' data-original-title="<?= $candidatos[($index*3)+$index1]['apellido'] . ", " . $candidatos[($index*3)+$index1]['nombre']?>">
                         <label class="checkbox">
-                            <input onclick="function1(<?= $candidatos[($index*3)+$index1]['socio_id'] ?>);" type="checkbox" id="check<?= $candidatos[($index*3)+$index1]['socio_id'] ?>" name="<?= $candidatos[($index*3)+$index1]['socio_id'] ?>" value=""><?= $candidatos[($index*3)+$index1]['apellido'] . ", " . $candidatos[($index*3)+$index1]['nombre'] ?></input>
+                            <input onclick="function1(<?= $candidatos[($index*3)+$index1]['socio_id'] ?>);" type="checkbox" id="check<?= $candidatos[($index*3)+$index1]['socio_id'] ?>" name="<?= $candidatos[($index*3)+$index1]['socio_id'] ?>" value=""><?= $candidatos[($index*3)+$index1]['apellido'] . ", " . $candidatos[($index*3)+$index1]['nombre'] . " (" . $candidatos[($index*3)+$index1]['socio_nro'] . ")" ?></input>
                         </label>
                     </div>
                     <?php
@@ -65,8 +92,9 @@
             <?php            
         }
         ?>
+        <br/>
         <div class="row">
-            <div class="offset3">
+            <div class="offset4">
                 <button  class="btn btn-success btn-large" type="button" data-toggle="modal" data-target="#myModal">ELIJO a los candidatos seleccionados</button>             
             </div>
         </div>        
@@ -82,7 +110,7 @@
                 <?php
                     foreach ($candidatos as $candidato) {
                         ?>
-                        <li id="li<?= $candidato['socio_id'] ?>" style="display: none;"><strong><?= $candidato['apellido'] . ", " . $candidato['nombre'] ?></strong></li>
+                        <li id="li<?= $candidato['socio_id'] ?>" style="display: none;"><strong><?= $candidato['apellido'] . ", " . $candidato['nombre'] . " (" . $candidato['socio_nro'] . ")" ?></strong></li>
                         <?php
                     }
                 ?>
@@ -125,6 +153,16 @@
                 $(liId).hide();
             }
            
+        }
+        
+        function function2(id) {
+            var divId = '#div' + id;
+            $(divId).popover('show');
+        }
+        
+        function function3(id) {
+            var divId = '#div' + id;
+            $(divId).popover('hide');
         }
     </script>
     
