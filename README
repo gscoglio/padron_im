@@ -19,3 +19,6 @@ $searchCriterias = array(
 );
 
 define('AMOUNT_PER_PAGE', 20);
+
+define('EMAIL_USERNAME', 'email');
+define('EMAIL_PASSWORD', 'emailPassword');

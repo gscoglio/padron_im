@@ -2,37 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Votaci&oacute;n Autoridades Independiente M&iacute;stico</title>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
-    <script type="text/javascript">        
-        function preload(images) {
-            if (document.images) {
-                var i = 0;
-                var imageArray = new Array();
-                imageArray = images.split(',');
-                var imageObj = new Image();
-                for(i=0; i<=imageArray.length-1; i++) {
-                    //document.write('<img src="img/fotos/' + imageArray[i] + '" />');// Write to page (uncomment to check images)
-                    imageObj.src=images[i];
-                }
-            }
-        }
-        <?
-        $index = 0;
-        $jsfunction = "preload('";
-        foreach ($candidatos as $candidato) {
-            if ($index == 0) {
-                $jsfunction .= $candidato['socio_nro'] . '.jpg';
-            } else {
-                $jsfunction .= ',' . $candidato['socio_nro'] . '.jpg';
-            }
-            $index++;
-        }
-        $jsfunction .= "');";
-        echo $jsfunction;
-        ?>
-    </script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
+    <div style="display: none;">
+    <?php
+        foreach ($candidatos as $candidato) {
+    ?>
+        <img alt="" src="img/fotos/<?= $candidato['socio_nro'] ?>.jpg" width="1" height="1" border="0"/>
+    <?php  
+        }
+    ?>
+    </div>
     <form id="vote" name="vote" action="votacion.php" method="post">
     <div class="container">
         <div class="page-header">
