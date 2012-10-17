@@ -21,23 +21,23 @@
     <div class="span6" >
         <form action="login.php" method="post" class="form-horizontal"><input type="hidden" name="ac" value="log"></input>
             <div class="control-group">
-                <label class="control-label">Username</label>
+                <label class="control-label">Nombre de usuario</label>
                 <div class="controls">
-                <input type="text" id="inputEmail" name="username" placeholder="Username"></input>
+                <input type="text" id="inputEmail" name="username" placeholder="Nombre de usuario"></input>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="inputPassword">Password</label>
+                <label class="control-label" for="inputPassword">Contrase&ntilde;a</label>
                 <div class="controls">
-                <input type="password" id="inputPassword" name="password" placeholder="Password"></input>
+                <input type="password" id="inputPassword" name="password" placeholder="Contrase&ntilde;a"></input>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
                 <label class="checkbox">
-                <input type="checkbox"> Remember me</input>
+                <input type="checkbox"> Recordarme</input>
                 </label>
-                <button type="submit" class="btn" value="Login">Sign in</button>
+                <button type="submit" class="btn" value="Login">Entrar</button>
                 </div>
             </div>
         </form>

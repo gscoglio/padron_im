@@ -1,10 +1,5 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 set_time_limit(0);
 
 header('Content-Type: text/html; charset=utf-8');
@@ -22,21 +17,26 @@ foreach ($socios as $socioString) {
     $socio = explode("-",$socioString);
     $socioCompleto = $sociosDb->getSocioByNro($socio[0]);
 
-    $params = array(
-        'email' => trim($socioCompleto['email']),
-        'nombre' => $socioCompleto['nombre'],
-        'apellido' => $socioCompleto['apellido'],
-        'socio_nro' => $socio[0],
-        'clave' => $socio[1],
-    );
+    if ($socioCompleto['puede_votar'] == 1) {
+ 
+        $params = array(
+            'email' => trim($socioCompleto['email']),
+            'nombre' => $socioCompleto['nombre'],
+            'apellido' => $socioCompleto['apellido'],
+            'socio_nro' => $socio[0],
+            'clave' => $socio[1],
+        );
 
-    try {
-        send_email($params);
-    } catch (Exception $exc) {
-        echo "<br>Error el enviar mail a {$socioCompleto['nombre']} {$socioCompleto['apellido']} ({$socioCompleto['socio_nro']}). " . "Error: " . $exc->getTraceAsString() . "</br>";
+        try {
+            send_email($params);
+        } catch (Exception $exc) {
+            echo "<br>Error el enviar mail a {$socioCompleto['nombre']} {$socioCompleto['apellido']} ({$socioCompleto['socio_nro']}). " . "Error: " . $exc->getTraceAsString() . "</br>";
+        }
+
+        echo "<br>Mail enviado existosamente a {$socioCompleto['nombre']} {$socioCompleto['apellido']} ({$socioCompleto['socio_nro']})</br>";
+        
+    } else {
+        echo "<br>{$socioCompleto['nombre']} {$socioCompleto['apellido']} ({$socioCompleto['socio_nro']}) no puede votar</br>";
     }
-    
-    echo "<br>Mail enviado existosamente a {$socioCompleto['nombre']} {$socioCompleto['apellido']} ({$socioCompleto['socio_nro']})</br>";
-    
+  
 }
-?>
