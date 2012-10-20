@@ -28,6 +28,15 @@
                 </div>
             </div>
         </div>
+        <?php if (isset($_GET['error']) && $_GET['error'] == 'maxVotes') {
+            ?><div>
+                <div class="alert alert-error">
+                No puede votar a mas de 11 candidatos! Realice su voto nuevamente.
+                </div>
+            </div>
+        <?php
+        }?>
+        
     <dl>
         <dt>&iquest;Qu&eacute; se vota?</dt>
         <dd>Se votan los vocales de la Agrupaci&oacute;n Independiente M&iacute;stico para el pr&oacute;ximo a&ntilde;o de mandato.</dd>
@@ -126,7 +135,7 @@
                 cantidadSeleccionados = $("input:checked").length;
                 $("#seleccionados").text("Ya tiene " + cantidadSeleccionados + (cantidadSeleccionados <= 1 ? " candidato seleccionado" : " candidatos seleccionados"));
                 alert("No puede seleccionar mas candidatos. Ya tiene 11.");
-            }         
+            }        
 
             if ($(checkId).attr('checked')) {
                 $(liId).show();

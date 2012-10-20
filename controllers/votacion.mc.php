@@ -6,6 +6,13 @@ check_logged("toVote"); /// function checks if visitor is logged. If user is not
 
 $user = (int)$_SESSION['tovote']["logged"];
 
+include_once 'db/fechas.php';
+$fechasDb = new Fechas();
+$fechas = $fechasDb->getFechasDeEleccion();
+$fechaLimite = current($fechas);
+
+//validacion de fecha!!!!!!!!!!
+
 include_once 'controllers/socios.mc.php';
 $sociosDb = new Socios();
 $voted = $sociosDb->checkVote($user);
@@ -32,6 +39,13 @@ $votosDb = new Votos();
 if (isset($_POST) && !empty($_POST)) {
     
     $votos = $_POST;
+    
+    $cantidadDeVotos = count($votos);
+    
+    if ($cantidadDeVotos > 11) {
+        header("Location: votacion.php?error=maxVotes");
+        exit;
+    }
     
     foreach ($votos as $voto => $value) {
         $votosDb->saveVote($user, $voto);
