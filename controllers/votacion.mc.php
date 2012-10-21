@@ -11,7 +11,14 @@ $fechasDb = new Fechas();
 $fechas = $fechasDb->getFechasDeEleccion();
 $fechaLimite = current($fechas);
 
-//validacion de fecha!!!!!!!!!!
+$now = strtotime(date('Y-m-d H:i:s'));
+$desde = strtotime($fechaLimite['desde']);
+$hasta = strtotime($fechaLimite['hasta']);
+
+if ($now < $desde || $now > $hasta) {
+    header("Location: outofdate.php");
+    exit;
+}
 
 include_once 'controllers/socios.mc.php';
 $sociosDb = new Socios();

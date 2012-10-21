@@ -10,11 +10,13 @@ $sociosDb = new SociosModel();
 
 $result = array();
 
-foreach ($votos as $voto) {
-    $socio = $sociosDb->getSocioByNro($voto['votado_socio_nro']);
-    $vote = array (
-        'nombre' => $socio['apellido'] . ", " . $socio['nombre'],
-        'votos' => $voto['votos'],
-    );
-    array_push($result, $vote);
+if (!empty($votos)) {
+    foreach ($votos as $voto) {
+        $socio = $sociosDb->getSocioByNro($voto['votado_socio_nro']);
+        $vote = array (
+            'nombre' => $socio['apellido'] . ", " . $socio['nombre'],
+            'votos' => $voto['votos'],
+        );
+        array_push($result, $vote);
+    }   
 }

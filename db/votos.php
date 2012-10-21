@@ -23,7 +23,10 @@ class Votos extends Padron_Abstract
         while ($voto = mysql_fetch_array($result, MYSQL_ASSOC)) {
             $votos[] = $voto;
         }
-        return $votos;
+        if (!empty($votos)) {
+            return $votos;
+        }
+        return "";
     }
     
 }

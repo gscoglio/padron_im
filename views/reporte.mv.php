@@ -16,9 +16,13 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Candidato', 'Votos'],
-          <?php foreach ($result as $value) { 
-            echo '["' . $value['nombre'] . '",  ' . $value['votos'] . '],';
-          }?>
+          <?php 
+          if (!empty($result)) {
+              foreach ($result as $value) { 
+                echo '["' . $value['nombre'] . '",  ' . $value['votos'] . '],';
+              }
+          }          
+          ?>
         ]);
 
         var options = {
