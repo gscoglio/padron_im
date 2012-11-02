@@ -61,22 +61,51 @@
                 <h1>Reporte Elecciones Independiente M&iacute;stico</h1>
             </div>
             <ul class="nav nav-tabs">
-                <li class="active">
+                <li <?= activate('barras') ?>>
                 <a href="reporte.php">Barras</a>
                 </li>
-                <li><a href="reporte.php?report=torta">Torta</a></li>
-                <li><a href="reporte.php?report=votantes">Votantes</a></li>
+                <li <?= activate('torta') ?>><a href="reporte.php?report=torta">Torta</a></li>
+                <li <?= activate('tabla') ?>><a href="reporte.php?report=tabla">Tabla</a></li>
             </ul>
-            <?php if (isset($_GET['report'])) {
-                if ($_GET['report'] == 'torta') {
+            <?php 
+            if (isset($_GET['report'])) {
+                switch ($_GET['report']) {
+                    case 'torta':
+                        ?>
+                        <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+                        <?php
+                        break;
+                    case 'tabla':
+                        ?>
+                        <table class="table table-hover table-condensed">
+                             <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Votos</th>
+                                </tr>
+                            </thead>
+                            <tbody>    
+                                <?php
+                                $index = 0;
+                                foreach ($result as $value) {
+                                    if ($index < 11) {
+                                        echo '<tr class="success"><td>' . $value['nombre'] . '</td><td>' . $value['votos'] . '</td></tr>';
+                                    } else {
+                                        echo '<tr class="error"><td>' . $value['nombre'] . '</td><td>' . $value['votos'] . '</td></tr>';
+                                    }
+                                    $index++;
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <?php
+                }
+            } else {
                 ?>
-                <div id="chart_div2" style="width: 900px; height: 500px;"></div>            
-            <?php }
-            } else { ?>
-            <div id="chart_div" style="width: 900px; height: 500px;"></div>    
-            <?php
-                } 
-            ?>
+                <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                <?php
+            }
+                ?>
         </div>
   </body>
 </html>

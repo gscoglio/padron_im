@@ -20,3 +20,12 @@ if (!empty($votos)) {
         array_push($result, $vote);
     }   
 }
+
+function activate($option) 
+{
+    if ((!isset($_GET['report']) && $option == 'barras') || 
+        ($option == $_GET['report'])){
+        return 'class="active"';
+    }
+    return '';
+}
