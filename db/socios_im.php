@@ -5,11 +5,11 @@ include_once 'abstract.php';
 class SociosModel extends Padron_Abstract
 {   
     public function getSocios($to, $limit, $where = '', $orderBy = 'socio_nro')
-    {
+    {        
         if ($where == '') {
-            $whereQuery = '';
+            $whereQuery = 'WHERE deleted=0';
         } else {
-            $whereQuery = 'WHERE ' . $where;
+            $whereQuery = 'WHERE ' . $where . " AND deleted=0";
         }
         
         $query = "SELECT * 
@@ -27,7 +27,8 @@ class SociosModel extends Padron_Abstract
     public function getAllSocios()
     {
         $query = "SELECT * 
-            FROM padron_im;";
+            FROM padron_im
+            WHERE deleted = 0;";
         $result = mysql_query($query, $this->_db);
         while ($socio = mysql_fetch_array($result, MYSQL_ASSOC)) {
             $socios[] = $socio;
@@ -38,9 +39,9 @@ class SociosModel extends Padron_Abstract
     public function getSociosAmount($where = '')
     {
         if ($where == '') {
-            $whereQuery = '';
+            $whereQuery = 'WHERE deleted=0';
         } else {
-            $whereQuery = 'WHERE ' . $where;
+            $whereQuery = 'WHERE ' . $where . " AND deleted=0";
         }
         
         $sql = "SELECT count(*) FROM padron_im $whereQuery;";
@@ -53,7 +54,8 @@ class SociosModel extends Padron_Abstract
     {
         $sql = "SELECT * 
             FROM padron_im 
-            WHERE socio_id=$id;";
+            WHERE socio_id=$id
+            AND deleted=0;";
         $query = mysql_query($sql, $this->_db);
         $socio = mysql_fetch_array($query);
         return $socio;
@@ -63,7 +65,8 @@ class SociosModel extends Padron_Abstract
     {
         $sql = "SELECT * 
             FROM padron_im 
-            WHERE socio_nro=$socio_nro;";
+            WHERE socio_nro=$socio_nro
+            AND deleted=0;";
         $query = mysql_query($sql, $this->_db);
         $socio = mysql_fetch_array($query);
         return $socio;
@@ -123,6 +126,7 @@ class SociosModel extends Padron_Abstract
         $query = "SELECT * 
             FROM padron_im 
             WHERE candidato = 1
+            AND deleted=0
             ORDER BY socio_nro;";
         $result = mysql_query($query, $this->_db);
         while ($candidato = mysql_fetch_array($result, MYSQL_ASSOC)) {
@@ -143,6 +147,14 @@ class SociosModel extends Padron_Abstract
         $query .= " WHERE socio_nro = $socio_nro;";
         $result = mysql_query($query, $this->_db);
         return $result;
+    }
+    
+    public function deleteSocio($socio_nro) 
+    {
+        $query = "UPDATE padron_im 
+            SET deleted=1
+            WHERE socio_nro=$socio_nro;";
+        return mysql_query($query, $this->_db);
     }
     
 }
