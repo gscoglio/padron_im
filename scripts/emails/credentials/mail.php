@@ -26,6 +26,11 @@ function send_email($params) {
     $mail->From = "no_reply@independientemistico.org";
     $mail->FromName = "Independiente Mistico";
     
+    if (!isset($params['email']) || empty($params['email'])) {
+        echo "Empty email for " . $params['nombre'] . " " . $params['apellido'] . "<br/>";
+        return; 
+    }
+    
     $mail->AddAddress($params['email'], $params['nombre'] . " " . $params['apellido']);
 
     $mail->AddReplyTo("elecciones@independientemistico.org", "Independiente Mistico");
@@ -44,9 +49,9 @@ function send_email($params) {
     $mail->Body = $body;
 
     if (!$mail->Send()) {
-        echo "Message could not be sent. <p>";
+        echo "Message could not be sent. <br/>";
         echo "Mailer Error: " . $mail->ErrorInfo . " " . date('d-m-Y');
-        exit;
+        return;
     }
 
     echo "Message has been sent " . date('d-m-Y');

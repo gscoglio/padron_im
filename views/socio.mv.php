@@ -3,7 +3,9 @@
 <?php include_once 'header.php' ?>
     <body>
         <script type="text/javascript" src="js/validateDelete.js" ></script>
-        <?php include_once 'navigation_bar.php' ?>
+        <?php include_once 'navigation_bar.php';
+        if ($socio){
+        ?>
         <div class="container">
             <div class="page-header">
                 <h1><?= $socio['nombre'] . " " . $socio['apellido']?><small> (<?= $socio['socio_nro'] ?>)</small></h1>
@@ -88,5 +90,21 @@
                 </div>
             </div>
         </div>
+        <?php } else {
+        ?>    
+            <div class="container">
+                <div class="alert alert-error" style="margin-top: 20px">
+                El socio seleccionado no existe.
+                </div>
+                <div class="row" >
+                    <div class="span10" >
+                        <p>
+                            <a class="btn" type="button" href=<?= $returnTo ?>>Volver</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php    
+        } ?>
     </body>
 </html>
