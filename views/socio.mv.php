@@ -2,15 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php include_once 'header.php' ?>
     <body>
-        <script type="text/javascript">
-        function deleteSocio(socio)
-        {
-            var answer = confirm("Seguro que queres borrar este socio?")
-            if (answer){
-                window.location = "delete.php?socio=" + socio;
-            }
-        }
-        </script>
+        <script type="text/javascript" src="js/validateDelete.js" ></script>
         <?php include_once 'navigation_bar.php' ?>
         <div class="container">
             <div class="page-header">
@@ -91,7 +83,7 @@
                 </div>
                 <div class="span2" >
                     <p>
-                        <button class="btn btn-danger" onclick="deleteSocio(<?= $socio['socio_nro'] ?>);" value="Borrar socio" type="button">Borrar socio</button>
+                        <button class="btn btn-danger" onclick="deleteSocio(<?= $socio['socio_nro'] ?>, 'socio');" value="Borrar socio" type="button">Borrar socio</button>
                     </p>
                 </div>
             </div>

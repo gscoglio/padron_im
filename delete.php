@@ -13,5 +13,13 @@ include_once 'db/socios_im.php';
 $sociosDb = new SociosModel();
 $sociosDb->deleteSocio($_GET['socio']);
 
-header('location: index.php');
+$returnTo = 'index.php';
+
+if (isset($_GET['source']) && $_GET['source'] == "socios") {
+    if (isset($_SERVER["HTTP_REFERER"])) {
+        $returnTo = $_SERVER["HTTP_REFERER"];
+    }
+}
+
+header('location: ' . $returnTo);
 exit;
