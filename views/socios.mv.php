@@ -32,7 +32,7 @@ if (!empty($socios)) {
                     <td onClick="document.location.href='socio.php?id=<?= $socio['socio_id'] ?>';" style="cursor:pointer;cursor:hand"><?= $socio['sexo'] ?></td>
                     <td onClick="document.location.href='socio.php?id=<?= $socio['socio_id'] ?>';" style="cursor:pointer;cursor:hand"><?= $socio['categoria'] ?></td>
                     <td onClick="document.location.href='socio.php?id=<?= $socio['socio_id'] ?>';" style="cursor:pointer;cursor:hand"><?= $socio['dni'] ?></td>
-                    <td style="text-align:center" ><a type="button" href="altas.php?socio_nro=<?= $socio['socio_nro'] ?>" ><i style="cursor:pointer;cursor:hand;" class="icon-edit"></i></a><a type="button"><i onclick="deleteSocio(<?= $socio['socio_nro'] ?>, 'socio');" style="cursor:pointer;cursor:hand;" class="icon-remove"></i></a></td>
+                    <td style="text-align:center" ><a type="button" title="Editar" href="altas.php?socio_nro=<?= $socio['socio_nro'] ?>" ><i style="cursor:pointer;cursor:hand;" class="icon-edit"></i></a><a type="button" title="Borrar" ><i onclick="deleteSocio(<?= $socio['socio_nro'] ?>, 'socio');" style="cursor:pointer;cursor:hand;" class="icon-remove"></i></a></td>
                 </tr>
             <?php
             }
