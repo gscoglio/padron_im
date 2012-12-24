@@ -113,6 +113,42 @@ class SociosModel extends Padron_Abstract
         }
     }
     
+    public function updateSocio($params, $id) 
+    {
+        $sql = 'UPDATE padron_im SET 
+            sexo = "' . $params['sexo'] . '",' . ' 
+            apellido = "' . addslashes($params['lastname']) . '",' . ' 
+            nombre = "'. addslashes($params['firstname']) . '",' . '
+            categoria = "'. addslashes($params['tiposocio']) . '",' . ' 
+            socio_nro = '. $id . ',' . '
+            socio_cai = "' . addslashes($params['nsocio']) . '", 
+            dni = ' . addslashes($params['dni']) . ', 
+            tel_celular = "' . addslashes($params['telcel']) . '", 
+            tel_particular = "' . addslashes($params['telpar']) . '", 
+            tel_laboral = "' . addslashes($params['tellaboral']) . '", 
+            email = "'. addslashes($params['email']) . '",' . '
+            fecha_afiliacion = "' . addslashes($params['afiliacion']) . '",' . '
+            presentado_por = "'. addslashes($params['presentedby']) . '",' . '
+            domicilio = "'. addslashes($params['address']) . '",' . '
+            localidad = "'. addslashes($params['localidad']) . '",' . '
+            codigo_postal = "' . addslashes($params['postal']) . '",' . '
+            barrio_zona = "' . addslashes($params['barrio']) . '",' . '
+            ocupacion = "' . addslashes($params['ocupacion']) . '"' . '
+            WHERE socio_nro = ' . $id . ';'; 
+        
+        //prevent SQL Injection
+        if (substr_count($sql, ';') > 1){
+            return -2;
+        };
+        
+        try {
+            mysql_query($sql, $this->_db);
+            return $id;
+        } catch (Exception $exc) {
+            return -1;
+        }        
+    }
+    
     private function _getLastNumberSocio()
     {
         $sql = "SELECT MAX( socio_nro ) FROM  padron_im;";

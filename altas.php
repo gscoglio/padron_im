@@ -3,31 +3,23 @@ session_start(); /// initialize session
 include_once("passwords.php");
 check_logged(); /// function checks if visitor is logged. If user is not logged the user is redirected to login.php page 
 
+if (isset($_GET['socio_nro'])) {
+    $socio_nro = $_GET['socio_nro'];
+    require_once 'db/socios_im.php';
+    $sociosDb = new SociosModel();
+    $socioToEdit = $sociosDb->getSocioByNro($socio_nro);
+} else {
+    $socio_nro = null;
+}
+
 if (isset($_POST['nsocio'])) {
     $error = 0;
     $mensajeError = "No se pudo cargar el socio";
-    $_POST['nsocio'];
-    $_POST['lastname'];
-    $_POST['firstname'];
-    $_POST['tipoSocio'];
     if ($_POST['optionsRadios']=='option1'){
         $sexo = 'M';
     }  else {
         $sexo = 'F';
     };
-    $_POST['dni'];
-    $_POST['telcel'];
-    $_POST['telpar'];
-    $_POST['tellaboral'];
-    $_POST['email'];
-    $fecha_aux = explode("/",$_POST['afiliacion']);
-    $fecha = $fecha_aux[2] . "-" . $fecha_aux[1] . "-" . $fecha_aux[0];
-    $_POST['presentedby'];
-    $_POST['address'];
-    $_POST['localidad'];
-    $_POST['postal'];
-    $_POST['barrio'];
-    $_POST['ocupacion'];
     
     $insert['nsocio'] = $_POST['nsocio'];
     $insert['lastname'] = $_POST['lastname'];
@@ -39,7 +31,7 @@ if (isset($_POST['nsocio'])) {
     $insert['telpar'] = $_POST['telpar'];
     $insert['tellaboral'] = $_POST['tellaboral'];
     $insert['email'] = $_POST['email'];
-    $insert['afiliacion'] = $fecha;
+    $insert['afiliacion'] = $_POST['afiliacion'];
     $insert['presentedby'] = $_POST['presentedby'];
     $insert['address'] = $_POST['address'];
     $insert['localidad'] = $_POST['localidad'];
@@ -49,9 +41,15 @@ if (isset($_POST['nsocio'])) {
     
     if ($error == 0){
         try{
-            include_once "db/socios_im.php";
-            $sociosModel = new SociosModel();
-            $resultado = $sociosModel->insertSocio($insert);
+            include_once "controllers/socios.mc.php";
+            $sociosModel = new Socios();
+            $resultado = $sociosModel->saveSocio($insert, $socio_nro);
+            if (isset($_GET['socio_nro'])) {
+                $socio_nro = $_GET['socio_nro'];
+                require_once 'db/socios_im.php';
+                $sociosDb = new SociosModel();
+                $socioToEdit = $sociosDb->getSocioByNro($socio_nro);
+            }
         } catch (Exception $e) {
             include_once 'views/altas.mv.php';
             echo "<script>$('#alertMessage').addClass(\"alert-error\");$('#alertMessage').html('<button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button><strong>Error! </strong>" . $e . ".');$('#alertMessage').show();</script>";
@@ -67,7 +65,7 @@ if (isset($_POST['nsocio'])) {
             die;
         } else {
             include_once 'views/altas.mv.php';
-            echo "<script>$('#alertMessage').addClass(\"alert-success\");$('#alertMessage').html('<button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>Socio <strong>". addslashes($_POST['lastname']) . ", " . addslashes($_POST['firstname']) . "</strong> con n&uacute;mero de socio de Independiente M&iacute;stico <strong>" . $resultado . "</strong> agregado al padr&oacute;n correctamente.');$('#alertMessage').show();</script>";
+            echo "<script>$('#alertMessage').addClass(\"alert-success\");$('#alertMessage').html('<button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>Socio <strong>". addslashes($_POST['lastname']) . ", " . addslashes($_POST['firstname']) . "</strong> con n&uacute;mero de socio de Independiente M&iacute;stico <strong>" . $resultado . "</strong> actualizado correctamente.');$('#alertMessage').show();</script>";
         }
     } else {
         include_once 'views/altas.mv.php';

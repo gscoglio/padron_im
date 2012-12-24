@@ -63,5 +63,16 @@ class Socios
         $result = $this->_sociosDb->updateSocioByNro($values, (int)$socio);
         return $result;
     }
+    
+    public function saveSocio($params, $socioId = null)
+    {
+        if (is_null($socioId)) {
+            $resultado = $this->_sociosDb->insertSocio($params);
+        } else {
+            $resultado = $this->_sociosDb->updateSocio($params, $socioId);
+        }
+        
+        return $resultado;
+    }
 
 }

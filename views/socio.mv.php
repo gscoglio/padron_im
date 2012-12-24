@@ -80,7 +80,7 @@
                 <div class="span10" >
                     <p>
                         <a class="btn" type="button" href=<?= $returnTo ?>>Volver</a>
-                        <button class="btn btn-primary" type="button">Editar socio</button>
+                        <a class="btn btn-primary" type="button" href="altas.php?socio_nro=<?=$socio['socio_nro']?>">Editar socio</a>
                     </p>
                 </div>
                 <div class="span2" >
