@@ -20,7 +20,7 @@ if (isset($_POST['nsocio'])) {
     }  else {
         $sexo = 'F';
     };
-    
+
     $insert['nsocio'] = $_POST['nsocio'];
     $insert['lastname'] = $_POST['lastname'];
     $insert['firstname'] = $_POST['firstname'];
@@ -38,6 +38,20 @@ if (isset($_POST['nsocio'])) {
     $insert['postal'] = $_POST['postal'];
     $insert['barrio'] = $_POST['barrio'];
     $insert['ocupacion'] = $_POST['ocupacion'];
+    $insert['ultima_cuota'] = $_POST['cuota'];
+    $insert['medio_pago'] = $_POST['medioDePago'];
+    
+    if (isset($_POST['tipoTarjeta'])) {
+        $insert['tarjeta_tipo'] = $_POST['tipoTarjeta'];
+    } else {
+        $insert['tarjeta_tipo'] = '';
+    }
+    
+    if (isset($_POST['nroTarjeta'])) {
+        $insert['tarjeta_nro'] = $_POST['nroTarjeta'];
+    } else {
+        $insert['tarjeta_nro'] = null;
+    }
     
     if ($error == 0){
         try{

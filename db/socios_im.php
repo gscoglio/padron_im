@@ -78,7 +78,8 @@ class SociosModel extends Padron_Abstract
         $sql = "INSERT INTO padron_im (sexo, apellido, nombre, categoria, 
             socio_nro, socio_cai, dni, tel_celular, tel_particular, 
             tel_laboral, email, fecha_afiliacion, presentado_por, 
-            domicilio, localidad, codigo_postal, barrio_zona, ocupacion) 
+            domicilio, localidad, codigo_postal, barrio_zona, ocupacion, 
+            ultima_cuota, medio_pago, tarjeta_tipo, tarjeta_nro) 
             VALUES('" . 
             $params['sexo'] . "', '" . 
             addslashes($params['lastname']) . "','" . 
@@ -97,7 +98,11 @@ class SociosModel extends Padron_Abstract
             addslashes($params['localidad']) . "','" .
             addslashes($params['postal']) . "','" .
             addslashes($params['barrio']) . "','" .
-            addslashes($params['ocupacion']) . "');";
+            addslashes($params['ocupacion']) . "','" .
+            addslashes($params['ultima_cuota']) . "','" .
+            addslashes($params['medio_pago']) . "','" .
+            addslashes($params['tarjeta_tipo']) . "','" .
+            addslashes($params['tarjeta_nro']) . "');";
         //print($sql);
         
         //prevent SQL Injection
@@ -133,9 +138,12 @@ class SociosModel extends Padron_Abstract
             localidad = "'. addslashes($params['localidad']) . '",' . '
             codigo_postal = "' . addslashes($params['postal']) . '",' . '
             barrio_zona = "' . addslashes($params['barrio']) . '",' . '
-            ocupacion = "' . addslashes($params['ocupacion']) . '"' . '
+            ocupacion = "' . addslashes($params['ocupacion']) . '",' . '
+            ultima_cuota = "' . addslashes($params['ultima_cuota']) . '",' . '
+            medio_pago = "' . addslashes($params['medio_pago']) . '",' . '
+            tarjeta_tipo = "' . addslashes($params['tarjeta_tipo']) . '",' . '
+            tarjeta_nro = "' . addslashes($params['tarjeta_nro']) . '"' . '
             WHERE socio_nro = ' . $id . ';'; 
-        
         //prevent SQL Injection
         if (substr_count($sql, ';') > 1){
             return -2;

@@ -12,67 +12,78 @@
             </div>
             <div class="row" >
                 <div class="span4" >
-                    <h3><small>N&uacute;mero de Socio: </small><?= $socio['socio_nro'] ?></h3>
+                    <h4><small>N&uacute;mero de Socio: </small><?= $socio['socio_nro'] ?></h4>
                 </div>
                 <div class="span4" >
-                    <h3><small>Socio CAI: </small><?= $socio['socio_cai'] ?></h3>
+                    <h4><small>Socio CAI: </small><?= $socio['socio_cai'] ?></h4>
                 </div>
                 <div class="span4" >
-                    <h3><small>Sexo: </small><?= $socio['sexo'] ?></h3>
+                    <h4><small>Sexo: </small><?= $socio['sexo'] ?></h4>
                 </div>
             </div>
             <div class="row" >
                 <div class="span4" >
-                    <h3><small>Categor&iacute;a: </small><?= $socio['categoria'] ?></h3>
+                    <h4><small>Categor&iacute;a: </small><?= $socio['categoria'] ?></h4>
                 </div>
                 <div class="span4" >
-                    <h3><small>DNI: </small><?= $socio['dni'] ?></h3>
+                    <h4><small>DNI: </small><?= $socio['dni'] ?></h4>
                 </div>
                 <div class="span4" >
-                    <h3><small>Fecha de afiliacion: </small><?= $socio['fecha_afiliacion'] ?></h3>
+                    <h4><small>Fecha de afiliacion: </small><?= $socio['fecha_afiliacion'] ?></h4>
                 </div>
             </div>
             <div class="row" >
                 <div class="span4" >
-                    <h3><small>Tel&eacute;fono celular: </small><?= $socio['tel_celular'] ?></h3>
+                    <h4><small>Tel&eacute;fono celular: </small><?= $socio['tel_celular'] ?></h4>
                 </div>
                 <div class="span4" >
-                    <h3><small>Tel&eacute;fono particular: </small><?= $socio['tel_particular'] ?></h3>
+                    <h4><small>Tel&eacute;fono particular: </small><?= $socio['tel_particular'] ?></h4>
                 </div>
                 <div class="span4" >
-                    <h3><small>Tel&eacute;fono laboral: </small><?= $socio['tel_laboral'] ?></h3>
+                    <h4><small>Tel&eacute;fono laboral: </small><?= $socio['tel_laboral'] ?></h4>
                 </div>
             </div>
             <div class="row" >
                 <div class="span6" >
-                    <h3><small>E-mail: </small><?= $socio['email'] ?></h3>
+                    <h4><small>E-mail: </small><?= $socio['email'] ?></h4>
                 </div>
                 <div class="span6" >
-                    <h3><small>Presentado por: </small><?= $socio['presentado_por'] ?></h3>
-                </div>
-            </div>
-            <div class="row" >
-                <div class="span6" >
-                    <h3><small>Domicilio: </small><?= $socio['domicilio'] ?></h3>
-                </div>
-                <div class="span6" >
-                    <h3><small>Localidad: </small><?= $socio['localidad'] ?></h3>
+                    <h4><small>Presentado por: </small><?= $socio['presentado_por'] ?></h4>
                 </div>
             </div>
             <div class="row" >
                 <div class="span6" >
-                    <h3><small>C&oacute;digo postal: </small><?= $socio['codigo_postal'] ?></h3>
+                    <h4><small>Domicilio: </small><?= $socio['domicilio'] ?></h4>
                 </div>
                 <div class="span6" >
-                    <h3><small>Barrio / Zona: </small><?= $socio['barrio_zona'] ?></h3>
+                    <h4><small>Localidad: </small><?= $socio['localidad'] ?></h4>
                 </div>
             </div>
             <div class="row" >
                 <div class="span6" >
-                    <h3><small>Ocupaci&oacute;n: </small><?= $socio['ocupacion'] ?></h3>
+                    <h4><small>C&oacute;digo postal: </small><?= $socio['codigo_postal'] ?></h4>
                 </div>
                 <div class="span6" >
-                    <h3><small>Ultima cuota paga: </small><?= $socio['ultima_cuota'] ?></h3>
+                    <h4><small>Barrio / Zona: </small><?= $socio['barrio_zona'] ?></h4>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="span6" >
+                    <h4><small>Ocupaci&oacute;n: </small><?= $socio['ocupacion'] ?></h4>
+                </div>
+                <div class="span6" >
+                    <h4><small>Ultima cuota paga: </small><?= $socio['ultima_cuota'] ?></h4>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="span4" >
+                    <h4><small>Medio de pago: </small><?= $socio['medio_pago'] ?></h4>
+                </div>
+                <div class="span4" >
+                    <h4><small>Tipo de tarjeta: </small><?= $socio['tarjeta_tipo'] ?></h4>
+                </div>
+                <div class="span4" >
+                    <h4><small>Nro de tarjeta: </small><?= $socio['tarjeta_nro'] ?></h4>
                 </div>
             </div>
             <br />
