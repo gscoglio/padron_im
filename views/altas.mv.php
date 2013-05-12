@@ -265,13 +265,13 @@ function validateTarjeta(){
             <input class="span3" id="nroTarjeta" name="nroTarjeta" size="20" type="text" <?php if (isset($socio_nro)) { echo 'value="' . $socioToEdit['tarjeta_nro'] . '"'; if ($socioToEdit['medio_pago'] != "tarjeta") { echo 'disabled'; } } else { echo 'disabled'; } ?>>
         </div>
     </div>
-    <div class="form-actions">
+    <div class="offset7">
         <?php if (!isset($_GET['socio_nro'])) {?>
         <button type="submit" class="btn btn-success">Dar de alta</button>
         <?php } else {?>
         <button type="submit" class="btn btn-success">Modificar</button>
         <?php } ?>
-        <button type="button" class="btn">Cancelar</button>
+        <a href="<?php if (isset($_SERVER['HTTP_REFERER'])) { echo $_SERVER['HTTP_REFERER']; } else { echo "index.php"; } ?>" class="btn" type="button">Cancelar</a>
     </div>
 </form>
 </div>

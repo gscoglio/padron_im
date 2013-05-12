@@ -53,6 +53,8 @@ if (isset($_POST['nsocio'])) {
         $insert['tarjeta_nro'] = null;
     }
     
+    $insert['updatedBy'] = $_SESSION['user_id'];
+    
     if ($error == 0){
         try{
             include_once "controllers/socios.mc.php";

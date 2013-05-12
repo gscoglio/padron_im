@@ -15,6 +15,7 @@
                     <option <?= selected('socio_nro')?>>Socio IM</option>
                     <option <?= selected('socio_cai')?>>Socio CAI</option>
                     <option <?= selected('dni')?>>DNI</option>
+                    <option <?= selected('tarjeta_nro')?>>Numero de tarjeta</option>
                 </select>
                 <div class="input-append">    
                     <input type="text" name="searchText" class="search-query" value="<?= searchText() ?>"/>

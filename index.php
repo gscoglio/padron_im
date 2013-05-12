@@ -34,7 +34,7 @@ if (isset($_GET['criteria']) && in_array($_GET['criteria'], $criterias)) {
         if ($searchCriterias[$_GET['criteria']] == 'text') {
             $where = $criteria . ' like ' . "'%" . $search . "%'";
         } else {
-                $where = $criteria . "=" . $search;
+                $where = $criteria . "=" . "'" . mysql_real_escape_string($search) . "'";
         }
     }
 }

@@ -22,6 +22,9 @@ switch ($_POST['searchCriteria']) {
     case "DNI":
         $whereCriteria = "dni";
         break;
+    case "Numero de tarjeta":
+        $whereCriteria = "tarjeta_nro";
+        break;
     default:
         header("Location: index.php");
         exit;

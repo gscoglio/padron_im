@@ -79,7 +79,7 @@ class SociosModel extends Padron_Abstract
             socio_nro, socio_cai, dni, tel_celular, tel_particular, 
             tel_laboral, email, fecha_afiliacion, presentado_por, 
             domicilio, localidad, codigo_postal, barrio_zona, ocupacion, 
-            ultima_cuota, medio_pago, tarjeta_tipo, tarjeta_nro) 
+            ultima_cuota, medio_pago, tarjeta_tipo, tarjeta_nro, updated_by) 
             VALUES('" . 
             $params['sexo'] . "', '" . 
             addslashes($params['lastname']) . "','" . 
@@ -102,8 +102,8 @@ class SociosModel extends Padron_Abstract
             addslashes($params['ultima_cuota']) . "','" .
             addslashes($params['medio_pago']) . "','" .
             addslashes($params['tarjeta_tipo']) . "','" .
-            addslashes($params['tarjeta_nro']) . "');";
-        //print($sql);
+            addslashes($params['tarjeta_nro']) . "','" .
+            addslashes($params['updatedBy']) . "');";
         
         //prevent SQL Injection
         if (substr_count($sql, ';') > 1){
@@ -142,7 +142,8 @@ class SociosModel extends Padron_Abstract
             ultima_cuota = "' . addslashes($params['ultima_cuota']) . '",' . '
             medio_pago = "' . addslashes($params['medio_pago']) . '",' . '
             tarjeta_tipo = "' . addslashes($params['tarjeta_tipo']) . '",' . '
-            tarjeta_nro = "' . addslashes($params['tarjeta_nro']) . '"' . '
+            tarjeta_nro = "' . addslashes($params['tarjeta_nro']) . '",' . '
+            updated_by = "' . addslashes($params['updatedBy']) . '"' . '
             WHERE socio_nro = ' . $id . ';'; 
         //prevent SQL Injection
         if (substr_count($sql, ';') > 1){

@@ -9,6 +9,10 @@ if(!isset($USERS)){
 
     foreach ($logins as $login) {
         $USERS[$login['username']] = $login['password'];
+        if (isset($_SESSION['logged']) && 
+            $login['username'] == $_SESSION['logged']) {
+            $_SESSION['user_id'] = $login['user_id'];
+        }
     }
     
     $socios = new SociosModel();
