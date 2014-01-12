@@ -14,6 +14,15 @@ $(function() {
         $( "#afiliacion" ).datepicker( "option", "monthNames", ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"] );
         $( "#afiliacion" ).val("<?php if (isset($socio_nro)) { echo $socioToEdit['fecha_afiliacion']; } ?>"); 
         
+        $( "#nacimiento" ).datepicker();
+        var dateFormat = $( "#nacimiento" ).datepicker( "option", "dateFormat" );
+        var dayNamesMin = $( "#nacimiento" ).datepicker( "option", "dayNamesMin" );
+        var monthNames = $( "#nacimiento" ).datepicker( "option", "monthNames" );
+        $( "#nacimiento" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+        $( "#nacimiento" ).datepicker( "option", "dayNamesMin", ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"] );
+        $( "#nacimiento" ).datepicker( "option", "monthNames", ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"] );
+        $( "#nacimiento" ).val("<?php if (isset($socio_nro)) { echo $socioToEdit['fecha_nacimiento']; } ?>"); 
+        
         $( "#cuota" ).datepicker();
         var dateFormat = $( "#cuota" ).datepicker( "option", "dateFormat" );
         var dayNamesMin = $( "#cuota" ).datepicker( "option", "dayNamesMin" );
@@ -50,6 +59,10 @@ $(document).ready(function(){
       minlength: 7,
       required: true,
       maxlength: 11
+    },
+    nacimiento: {
+      required: false,
+      date: true
     },
     telcel: {
       number: true,
@@ -189,6 +202,11 @@ function validateTarjeta(){
     <div class="control-group">
         <div class="input-prepend">
             <span class="add-on formLabel">DNI</span><input class="span2" id="dni" name="dni" size="16" type="text" <?php if (isset($socio_nro)) { echo 'value="' . $socioToEdit['dni'] . '"'; } ?>>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="input-prepend">
+            <span class="add-on">Fecha de nacimiento</span><input class="span2" id="nacimiento" name="nacimiento" size="16" type="text" <?php if (isset($socio_nro)) { echo 'value="' . $socioToEdit['fecha_nacimiento'] . '"'; } ?>>
         </div>
     </div>
     <div class="control-group">

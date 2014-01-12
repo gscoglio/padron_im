@@ -44,6 +44,11 @@
                 </div>
             </div>
             <div class="row" >
+                <div class="span4" >
+                    <h4><small>Fecha de nacimiento: </small><?= $socio['fecha_nacimiento'] ?></h4>
+                </div>
+            </div>
+            <div class="row" >
                 <div class="span6" >
                     <h4><small>E-mail: </small><?= $socio['email'] ?></h4>
                 </div>

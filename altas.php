@@ -27,6 +27,7 @@ if (isset($_POST['nsocio'])) {
     $insert['sexo'] = $sexo;
     $insert['tiposocio'] = $_POST['tipoSocio'];
     $insert['dni'] = $_POST['dni'];
+    $insert['nacimiento'] = $_POST['nacimiento'];
     $insert['telcel'] = $_POST['telcel'];
     $insert['telpar'] = $_POST['telpar'];
     $insert['tellaboral'] = $_POST['tellaboral'];
@@ -40,7 +41,7 @@ if (isset($_POST['nsocio'])) {
     $insert['ocupacion'] = $_POST['ocupacion'];
     $insert['ultima_cuota'] = $_POST['cuota'];
     $insert['medio_pago'] = $_POST['medioDePago'];
-    
+
     if (isset($_POST['tipoTarjeta'])) {
         $insert['tarjeta_tipo'] = $_POST['tipoTarjeta'];
     } else {

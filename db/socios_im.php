@@ -76,7 +76,7 @@ class SociosModel extends Padron_Abstract
     {   
         $nrosocioIM = $this->_getLastNumberSocio() + 1;
         $sql = "INSERT INTO padron_im (sexo, apellido, nombre, categoria, 
-            socio_nro, socio_cai, dni, tel_celular, tel_particular, 
+            socio_nro, socio_cai, dni, fecha_nacimiento, tel_celular, tel_particular, 
             tel_laboral, email, fecha_afiliacion, presentado_por, 
             domicilio, localidad, codigo_postal, barrio_zona, ocupacion, 
             ultima_cuota, medio_pago, tarjeta_tipo, tarjeta_nro, updated_by) 
@@ -88,6 +88,7 @@ class SociosModel extends Padron_Abstract
             $nrosocioIM . ",'" .
             addslashes($params['nsocio']) . "'," .
             addslashes($params['dni']) . ",'" .
+            addslashes($params['nacimiento']) . "','" .
             addslashes($params['telcel']) . "','" .
             addslashes($params['telpar']) . "','" .
             addslashes($params['tellaboral']) . "','" .
@@ -128,6 +129,7 @@ class SociosModel extends Padron_Abstract
             socio_nro = '. $id . ',' . '
             socio_cai = "' . addslashes($params['nsocio']) . '", 
             dni = ' . addslashes($params['dni']) . ', 
+            fecha_nacimiento = "' . addslashes($params['nacimiento']) . '",' . ' 
             tel_celular = "' . addslashes($params['telcel']) . '", 
             tel_particular = "' . addslashes($params['telpar']) . '", 
             tel_laboral = "' . addslashes($params['tellaboral']) . '", 
