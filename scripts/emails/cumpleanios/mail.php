@@ -94,9 +94,13 @@ $mensaje .= '</p></td>
 $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-// Cabeceras adicionales
-$cabeceras .= 'To: German <german.scoglio@gmail.com>' . "\r\n";
-$cabeceras .= 'From: Independiente Mistico <contacto@independientemistico.org>' . "\r\n";
+foreach ($sociosBirth as $socioBirth) {
+    if (isset($socioBirth['email']) && ! empty($socioBirth['email'])) {
+        $cabeceras .= 'To: <' . $socioBirth['email'] . '>' . "\r\n";
+    }
+}
+
+$cabeceras .= 'From: Independiente Mistico <no-reply@independientemistico.org>' . "\r\n";
 
 // Send
 mail('german.scoglio@gmail.com', $titulo, $mensaje, $cabeceras);
