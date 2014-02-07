@@ -204,4 +204,17 @@ class SociosModel extends Padron_Abstract
         return mysql_query($query, $this->_db);
     }
     
+    public function getSociosByBirth($date)
+    {
+        $query = 'select * from padron_im where fecha_nacimiento like "%';
+        $query .= $date;
+        $query .= '" AND deleted = 0;';
+        $result = mysql_query($query, $this->_db);
+        $socios = array();
+        while ($socio = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            $socios[] = $socio;
+        }
+        return $socios;
+    }
+    
 }
