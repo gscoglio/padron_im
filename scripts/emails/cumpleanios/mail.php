@@ -5,7 +5,7 @@ require_once 'db/socios_im.php';
 date_default_timezone_set('America/Argentina/Buenos_Aires');
 
 $hoy = date("m-d");
-$fecha = split('-', $hoy);
+$fecha = explode('-', $hoy);
 $dia = $fecha[1];
 $mes = $fecha[0];
 
